@@ -296,18 +296,25 @@ class Project:
                 obj[k] = t.props[k]
         return obj
 
-    def save(self, path):
+    def save(self, path, agent="Astro-Abwehr Generator"):
         targets = [self._target_json(s, i + 1) for i, s in enumerate(self.sprites)]
         stage = self._target_json(self.stage, 0)
         stage["broadcasts"] = {bid: n for n, bid in self.broadcasts.items()}
         project = {"targets": [stage] + targets, "monitors": self.monitors,
                    "extensions": [], "meta": {"semver": "3.0.0", "vm": "0.2.0",
-                                              "agent": "Astro-Abwehr Generator"}}
+                                              "agent": agent}}
         with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED) as z:
             z.writestr("project.json", json.dumps(project, ensure_ascii=False))
             for name, data in self.files.items():
                 z.writestr(name, data)
         return project
+
+    def var_monitor(self, name, x, y, mode="default"):
+        self.monitors.append({
+            "id": self._var_id(self.stage, name), "mode": mode, "opcode": "data_variable",
+            "params": {"VARIABLE": name}, "spriteName": None, "value": 0, "width": 0,
+            "height": 0, "x": x, "y": y, "visible": True, "sliderMin": 0, "sliderMax": 100,
+            "isDiscrete": True})
 
     def list_monitor(self, name, x, y, w, h):
         self.monitors.append({

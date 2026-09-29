@@ -1,3 +1,7 @@
+> **Zwei Spiele in diesem Repo:**
+> - 🍎 **[Apfelfänger](Apfelfaenger.md)** – kleines, einfaches Fangspiel (3 Figuren, 8 Skripte)
+> - 🚀 **Astro-Abwehr** – großer Weltraum-Shooter (siehe unten)
+
 # Astro-Abwehr 🚀
 
 Ein Weltraum-Shooter für **Scratch 3** mit 17 Figuren, rund 1.350 Blöcken,
