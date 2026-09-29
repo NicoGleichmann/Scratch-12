@@ -84,7 +84,7 @@ Wenn grüne Flagge angeklickt
   warte 2 Sekunden
   wiederhole fortlaufend
     erzeuge Klon von [mir selbst]
-    warte ((Zufallszahl von 20 bis 40) / Tempo) Sekunden
+    warte ((Zufallszahl von 20 bis 40) / (Tempo * 10)) Sekunden
 
 Wenn ich als Klon entstehe
   gehe zu x: (Zufallszahl von -220 bis 220) y: 190

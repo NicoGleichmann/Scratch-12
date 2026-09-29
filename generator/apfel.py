@@ -145,7 +145,7 @@ ap.script(
     wait(2),
     forever(
         clone(),
-        wait(div(rnd(20, 40), v("Tempo")))),
+        wait(div(rnd(20, 40), mul(v("Tempo"), 10)))),
     comment="Apfel-Fabrik: Das Original bleibt unsichtbar und erzeugt immer wieder Klone. "
             "Je höher das Tempo, desto kürzer die Pause zwischen zwei Äpfeln.")
 
